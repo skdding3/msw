@@ -2,8 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-
-import { worker } from "./src/mock/browser.js";
+import { worker } from "./mock/browser.js";
 
 worker.start();
 
