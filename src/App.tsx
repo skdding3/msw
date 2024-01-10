@@ -1,15 +1,27 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useEffect, useState } from "react";
 import "./App.css";
+import axios from "axios";
 
 function App() {
   // STATE
-  const [count, setCount] = useState(0);
+  const [data, setData] = useState("");
+
+  useEffect(() => {
+    const url = "http://localhost:5173/api/hi";
+
+    const fetchData = async () => {
+      const res = await axios.get(url);
+      const response = res.data;
+
+      setData(response);
+    };
+
+    fetchData();
+  });
 
   return (
     <>
-      <div></div>
+      <div>{data}</div>
     </>
   );
 }
